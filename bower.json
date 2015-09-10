@@ -1,0 +1,24 @@
+{
+  "name": "multi-med.ro",
+  "version": "0.9.2",
+  "authors": [
+    "Emil Mieilica <emil.mieilica@gmail.com>"
+  ],
+  "description": "www.multi-med.ro web site",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.multi-med.ro",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "modernizr": "~2.8.3"
+  }
+}
