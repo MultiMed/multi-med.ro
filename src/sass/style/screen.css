@@ -1,0 +1,74 @@
+/* line 16, ../stylesheets/screen.scss */
+html {
+  height: 100%;
+  display: block; }
+
+/* line 21, ../stylesheets/screen.scss */
+img {
+  max-width: 100%; }
+
+/* line 25, ../stylesheets/screen.scss */
+body {
+  font-family: 'Droid Sans', sans-serif;
+  height: 100%; }
+
+/* line 45, ../../../../../usr/share/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
+body:before, body:after {
+  content: "";
+  display: table; }
+
+/* line 50, ../../../../../usr/share/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
+body:after {
+  clear: both; }
+
+/* line 29, ../stylesheets/screen.scss */
+body > nav {
+  font-family: 'Raleway', sans-serif;
+  position: relative;
+  background: #b52433;
+  color: #ffffff;
+  vertical-align: middle;
+  font-size: 1.7em;
+  line-height: 1.7em; }
+
+/* line 37, ../stylesheets/screen.scss */
+body > nav h1 {
+  margin: 0;
+  font-weight: 800; }
+
+/* line 42, ../stylesheets/screen.scss */
+body > footer {
+  font-family: 'Raleway', sans-serif;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 1em; }
+
+/* line 50, ../stylesheets/screen.scss */
+body a {
+  color: #b52433; }
+
+/* line 55, ../stylesheets/screen.scss */
+main {
+  width: 80%;
+  margin: 0 auto; }
+
+/* line 60, ../stylesheets/screen.scss */
+article {
+  -moz-border-radius: 4px / 4px;
+  -webkit-border-radius: 4px 4px;
+  border-radius: 4px / 4px;
+  -moz-box-shadow: #f1d9d9 2px 2px 6px;
+  -webkit-box-shadow: #f1d9d9 2px 2px 6px;
+  box-shadow: #f1d9d9 2px 2px 6px; }
+
+/* line 63, ../stylesheets/screen.scss */
+article p {
+  margin: 1em 1em;
+  text-align: justify; }
+
+/* line 67, ../stylesheets/screen.scss */
+article h1 {
+  text-align: center; }
+
+/*# sourceMappingURL=screen.css.map */
