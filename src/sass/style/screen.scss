@@ -1,44 +1,124 @@
-/* line 16, ../stylesheets/screen.scss */
+@import "compass";
+
+@include establish-baseline;
+
 html {
-  height: 100%;
-  display: block;
+    height: 100%;
+    display: block;
+    //@include debug-vertical-alignment;
 }
 
-/* line 21, ../stylesheets/screen.scss */
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
-/* line 25, ../stylesheets/screen.scss */
 body {
-  font-family: 'Droid Sans', sans-serif;
-  height: 100%;
+    font-family: 'Droid Sans', sans-serif;
+    height: 100%;
+    @include pie-clearfix;
+    box-sizing: border-box;
+
+    header {
+        position: relative;
+        vertical-align: middle;
+
+        mark {
+            @include adjust-font-size-to(1.7em);
+            display: block;
+            font-family: 'Raleway', sans-serif;
+            background: #b52433;
+            color: #ffffff;
+        }
+
+        p, h1 {
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            @include adjust-font-size-to(2em);
+        }
+
+        nav {
+            h1 {
+                display: none;
+            }
+            ul {
+                padding-left: 1em;
+                li {
+                    list-style: none;
+                }
+            }
+        }
+    }
 }
-/* line 45, ../../../../../usr/share/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
-body:before, body:after {
-  content: "";
-  display: table;
+
+main {
+    position: relative;
+    vertical-align: middle;
 }
-/* line 50, ../../../../../usr/share/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
-body:after {
-  clear: both;
+
+article > section {
+    @include border-radius(4px 4px);
+    @include box-shadow(#f1d9d9 2px 2px 6px);
+    width: 80%;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    p {
+        @include rhythm-margins(1,1);
+        padding: 0 0.4em;
+        text-align: justify;
+    }
+
+    h1, h2 {
+        @include adjust-font-size-to(1.5em);
+        text-align: center;
+    }
+
+    h3 {
+        @include adjust-font-size-to(1.17em);
+        text-align: center;
+    }
+
+    iframe, img {
+        width: 98%;
+        max-width: 98%;
+        padding: 0 0.4em;
+        &.halfHeight {
+            height: 25em;
+        }
+    }
+
+    iframe {
+        height: 50em;
+    }
 }
-/* line 29, ../stylesheets/screen.scss */
-body > nav {
-  font-family: 'Raleway', sans-serif;
-  position: relative;
-  background: #b52433;
-  color: #ffffff;
-  vertical-align: middle;
-  font-size: 1.7em;
-  line-height: 1.7em;
+
+.compactList {
+    padding: 0 0;
+    li {
+        display: block;
+    }
 }
-/* line 37, ../stylesheets/screen.scss */
+.gallery {
+    @include display-flex;
+    @include flex-direction(row);
+    padding: 0 0.4em;
+    li {
+        display: block;
+    }
+}
+
+/*
+
+
 body > nav h1 {
   margin: 0;
   font-weight: 800;
 }
-/* line 42, ../stylesheets/screen.scss */
+
 body > footer {
   font-family: 'Raleway', sans-serif;
   position: relative;
@@ -46,18 +126,18 @@ body > footer {
   text-align: center;
   margin-top: 1em;
 }
-/* line 50, ../stylesheets/screen.scss */
+
 body a {
   color: #b52433;
 }
 
-/* line 55, ../stylesheets/screen.scss */
+
 main {
   width: 80%;
   margin: 0 auto;
 }
 
-/* line 60, ../stylesheets/screen.scss */
+
 article {
   -moz-border-radius: 4px / 4px;
   -webkit-border-radius: 4px 4px;
@@ -66,12 +146,13 @@ article {
   -webkit-box-shadow: #f1d9d9 2px 2px 6px;
   box-shadow: #f1d9d9 2px 2px 6px;
 }
-/* line 63, ../stylesheets/screen.scss */
+
 article p {
   margin: 1em 1em;
   text-align: justify;
 }
-/* line 67, ../stylesheets/screen.scss */
+
 article h1 {
   text-align: center;
 }
+*/

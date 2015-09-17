@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 
 var del = require('del');
-var sass = require('gulp-sass');
+var sass = require('gulp-ruby-sass');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var sourcemaps = require('gulp-sourcemaps');
@@ -11,8 +11,10 @@ var modernizr = require('gulp-modernizr');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var merge = require('merge-stream');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var newer = require('gulp-newer');
 
 gulp.task('clean', function() {
     return del(['out/**']);
@@ -30,16 +32,20 @@ gulp.task('copy:docs', function() {
 });
 
 gulp.task('copy:css', function() {
-    return gulp.src(['src/sass/**/*.scss'])
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('out/'))
-        .pipe(reload({ stream:true }));
+    return sass('src/sass/**/*.scss',
+            {
+                sourcemap: true,
+                compass: true
+            })
+            .on('error', sass.logError)
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest('out/'))
+            .pipe(reload({ stream:true }));
 });
 
 gulp.task('copy:img', function() {
     return gulp.src(['src/images/**'])
+        .pipe(newer('out/'))
         .pipe(imagemin({
             progressive: true,
             use: [pngquant()]
@@ -64,8 +70,14 @@ gulp.task('build:modernizr', function() {
 });
 
 gulp.task('copy:js', ['build:modernizr'], function() {
-    return gulp.src(['src/javascript/**'])
-        .pipe(gulp.dest('out/'));
+    return merge(
+        gulp.src(['src/javascript/**'])
+            .pipe(gulp.dest('out/')),
+        gulp.src(['vendor/jquery/dist/*.js'])
+            .pipe(gulp.dest('out/js')),
+        gulp.src(['vendor/jquery/dist/*.map'])
+            .pipe(gulp.dest('out/js/maps'))
+    );
 });
 
 gulp.task('default', ['copy:html', 'copy:css', 'copy:img', 'copy:js', 'copy:docs']);
